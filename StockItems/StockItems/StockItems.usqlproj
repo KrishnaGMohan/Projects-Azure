@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ff657edb-1da2-4dd1-81e4-dabb3adf9dbe</ProjectGuid>
+    <OutputType>File</OutputType>
+    <AssemblyName>Algebra.xml</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <Name>StockItems</Name>
+    <RootNamespace>StockItems</RootNamespace>
+    <RuntimeVersion>default</RuntimeVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Script Include="02.CreateObjects.usql" />
+    <Script Include="01.CreateDB.usql" />
+    <Script Include="03.LoadData.usql" />
+    <Script Include="04.ExtractData.usql" />
+    <Script Include="05.CreateObjects.usql" />
+    <Script Include="06.LoadData.usql" />
+    <Script Include="07.ExtractData.usql" />
+    <ScriptCode Include="02.CreateObjects.usql.cs">
+      <DependentUpon>02.CreateObjects.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="01.CreateDB.usql.cs">
+      <DependentUpon>01.CreateDB.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="03.LoadData.usql.cs">
+      <DependentUpon>03.LoadData.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="04.ExtractData.usql.cs">
+      <DependentUpon>04.ExtractData.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="05.CreateObjects.usql.cs">
+      <DependentUpon>05.CreateObjects.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="06.LoadData.usql.cs">
+      <DependentUpon>06.LoadData.usql</DependentUpon>
+    </ScriptCode>
+    <ScriptCode Include="07.ExtractData.usql.cs">
+      <DependentUpon>07.ExtractData.usql</DependentUpon>
+    </ScriptCode>
+  </ItemGroup>
+  <Import Project="$(AppData)\Microsoft\DataLake\MsBuild\1.0\Usql.targets" />
+</Project>

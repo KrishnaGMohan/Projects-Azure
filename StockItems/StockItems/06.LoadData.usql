@@ -1,0 +1,18 @@
+﻿USE DATABASE retail;
+
+@data =
+    EXTRACT     orderid int,
+                orderdate string,
+                customername string,
+                phonenumber string,
+                deliveryaddressline1 string,
+                deliveryaddressline2 string,
+                cityname string,
+                stockitemid int,
+                quantity int?,
+                unitprice decimal?
+    FROM "/retail/orders/{*}.txt"
+    USING Extractors.Tsv( skipFirstNRows:1 , silent : true);
+
+INSERT INTO sales.orders
+SELECT * FROM @data;

@@ -1,0 +1,10 @@
+﻿USE DATABASE retail;
+
+@table =
+    SELECT *
+    FROM [retail].[sales].[stock]
+    WHERE item.ToUpper().IndexOf("CHOCOLATE") != -1;
+ 
+OUTPUT @table     
+TO "/retail/chocolateTemp.csv"     
+USING Outputters.Csv(); 

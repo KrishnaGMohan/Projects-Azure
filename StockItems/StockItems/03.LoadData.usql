@@ -1,0 +1,10 @@
+﻿USE DATABASE retail;
+
+@data =
+    EXTRACT id int,
+            item string
+    FROM "/retail/{*}.txt"
+    USING Extractors.Tsv(silent : true);
+
+INSERT INTO sales.stock
+SELECT * FROM @data;

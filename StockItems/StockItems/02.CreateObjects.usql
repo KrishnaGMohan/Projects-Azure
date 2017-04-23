@@ -1,0 +1,12 @@
+﻿USE DATABASE retail; 
+ 
+CREATE SCHEMA IF NOT EXISTS sales;
+
+CREATE TABLE sales.stock
+(
+    id int,
+    item string,
+    INDEX idx_id
+    CLUSTERED(id)
+)
+DISTRIBUTED BY HASH(item);

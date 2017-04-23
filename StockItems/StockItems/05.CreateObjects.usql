@@ -1,0 +1,17 @@
+﻿USE DATABASE retail; 
+ 
+CREATE TABLE sales.orders
+(
+    orderid int,
+    orderdate string,
+    customername string,
+    phonenumber string,
+    deliveryaddressline1 string,
+    deliveryaddressline2 string,
+    cityname string,
+    stockitemid int,
+    quantity int?,
+    unitprice decimal?,
+    INDEX idx_orderid CLUSTERED(orderid)
+)
+DISTRIBUTED BY HASH(customername);

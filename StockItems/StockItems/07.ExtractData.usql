@@ -1,0 +1,18 @@
+﻿USE DATABASE retail;
+
+@table =
+    SELECT DISTINCT orderdate.Substring(0, 4) AS orderyear,
+                    orderid
+    FROM [retail].[sales].[orders];
+
+@results =
+    SELECT orderyear,
+           COUNT(orderid) AS ordercount
+    FROM @table
+    GROUP BY orderyear;
+    
+ 
+OUTPUT @results
+TO "/retail/ordersbyyear.csv" 
+ORDER BY orderyear
+USING Outputters.Csv(); 
